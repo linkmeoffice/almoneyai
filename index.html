@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoneyMind AI — Perencana Keuangan</title>
+
+    <!-- Chart.js via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js">
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="app-header">
+        <div class="header-inner">
+            <div class="logo">
+                <span class="logo-icon"></span>
+                <h1>A-wallet</h1>
+            </div>
+            <p class="subtitle">"Masukkan uangmu. Biarkan sistem menyusun langkah berikutnya."</p>
+        </div>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main class="app-main">
+
+        <!-- ===== INPUT CARD ===== -->
+        <section class="card input-card" id="inputCard">
+            <h2 class="card-title">Berapa uang yang kamu punya?</h2>
+            <div class="input-group">
+                <span class="currency-prefix">Rp</span>
+                <input type="text" id="moneyInput" placeholder="0" value="Rp 0" />
+            </div>
+            <div class="button-group">
+                <button class="btn btn-primary" id="analyzeBtn">ANALISIS UANG</button>
+                <button class="btn btn-secondary" id="resetBtn">Reset</button>
+            </div>
+            <p class="input-hint">Masukkan nominal dalam Rupiah</p>
+        </section>
+
+        <!-- ===== LOADING OVERLAY ===== -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-card">
+                <div class="loading-spinner"></div>
+                <p class="loading-text" id="loadingText">Menganalisis nominal...</p>
+            </div>
+        </div>
+
+        <!-- ===== RESULTS DASHBOARD ===== -->
+        <div class="results-dashboard" id="resultsDashboard">
+
+            <!-- Total Dana & Status -->
+            <div class="result-grid top-grid">
+                <div class="result-card">
+                    <span class="result-label">Total Dana</span>
+                    <span class="result-value" id="totalDana">Rp 0</span>
+                </div>
+                <div class="result-card">
+                    <span class="result-label">Status Dana</span>
+                    <span class="result-value" id="statusDana">—</span>
+                </div>
+                <div class="result-card score-card">
+                    <span class="result-label">Financial Readiness Score</span>
+                    <div class="score-display">
+                        <span class="score-number" id="scoreNumber">0</span>
+                        <span class="score-total">/ 100</span>
+                    </div>
+                    <div class="progress-bar-track">
+                        <div class="progress-bar-fill" id="scoreBar" style="width:0%;"></div>
+                    </div>
+                    <span class="score-category" id="scoreCategory">—</span>
+                </div>
+            </div>
+
+            <!-- Money Mind Analysis (narasi) -->
+            <div class="card analysis-card">
+                <h3 class="card-title-small">🧠 MONEY MIND</h3>
+                <p class="analysis-text" id="analysisText">Sistem siap menganalisis keuangan Anda.</p>
+            </div>
+
+            <!-- Alokasi Dana -->
+            <div class="card allocation-card">
+                <h3 class="card-title-small">📊 PEMBAGIAN DANA</h3>
+                <div class="allocation-grid" id="allocationGrid">
+                    <!-- diisi JS -->
+                </div>
+            </div>
+
+            <!-- Diagram + Proyeksi -->
+            <div class="chart-row">
+                <div class="card chart-card">
+                    <h3 class="card-title-small">DISTRIBUSI DANA</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="doughnutChart"></canvas>
+                    </div>
+                </div>
+                <div class="card chart-card">
+                    <h3 class="card-title-small">PROYEKSI DANA</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                    <p class="disclaimer-small">* Proyeksi simulasi edukasi, bukan nasihat keuangan.</p>
+                </div>
+            </div>
+
+            <!-- Prioritas Utama -->
+            <div class="card priorities-card">
+                <h3 class="card-title-small">🎯 PRIORITAS UTAMA</h3>
+                <div class="priorities-list" id="prioritiesList">
+                    <!-- diisi JS -->
+                </div>
+            </div>
+
+            <!-- AI Reasoning -->
+            <div class="card reasoning-card">
+                <h3 class="card-title-small">💡 KENAPA SISTEM MEMILIH INI?</h3>
+                <ul class="reasoning-list" id="reasoningList">
+                    <!-- diisi JS -->
+                </ul>
+            </div>
+
+            <!-- Timeline -->
+            <div class="card timeline-card">
+                <h3 class="card-title-small">📅 RENCANA KE DEPAN</h3>
+                <div class="timeline-grid" id="timelineGrid">
+                    <!-- diisi JS -->
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="disclaimer-box">
+                <p>⚠️ Hasil ini merupakan simulasi / edukasi, bukan nasihat keuangan profesional. Keputusan keuangan sepenuhnya ada di tangan Anda.</p>
+            </div>
+
+        </div><!-- /results-dashboard -->
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="app-footer">
+        <p>© A-WALLET</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="main.js"></script>
+</body>
+                  </html>
